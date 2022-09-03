@@ -6,7 +6,9 @@ public class Main {
         task4();
         task5();
 
+
     }
+
 
     private static void task5() {
         //Напишите программу, которая определяет по номеру месяца в году,
@@ -61,12 +63,20 @@ public class Main {
         int deliveryDistance = 95; // km
         String howMuchDays = "Потребуется дней:";
         int days = 1;       // 1 day = 20 km // 2 = от 20 до 60 (+1 day), 3 = от 60 до 100 (+1 day)
-        days = (deliveryDistance / 40) + days;      // 95/40 = 2 + 1 = 3 days way before the client.
-        if (deliveryDistance >= 20 || deliveryDistance <= 60) {
-            System.out.printf("%s %d\n", howMuchDays, days);
-        } else if (deliveryDistance >= 60 && deliveryDistance < 100) {
-            System.out.printf("%s %d\n", howMuchDays, days);
+        if (deliveryDistance > 20) {
+            days++;
         }
+        if (deliveryDistance > 60) {
+            days++;
+        }
+        System.out.printf("%s %d\n", howMuchDays, days);
+// моё "не гибкое" решение
+//        days = (deliveryDistance / 40) + days;      // 95/40 = 2 + 1 = 3 days way before the client.
+//        if (deliveryDistance >= 20 || deliveryDistance <= 60) {
+//            System.out.printf("%s %d\n", howMuchDays, days);
+//        } else if (deliveryDistance >= 60 && deliveryDistance < 100) {
+//            System.out.printf("%s %d\n", howMuchDays, days);
+//        }
 
     }
 
@@ -80,12 +90,17 @@ public class Main {
         int year = 2017;
         String leapYear = "год является високосным";
         String notLeapYear = "год не является високосным";
-
-        if (year < 2017 || year == 2020) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 ==0) {
             System.out.printf("%d %s\n", year, leapYear);
-        } else if (year <=2017 || year > 2016) {
+        } else {
             System.out.printf("%d %s\n", year, notLeapYear);
         }
+// моё решение
+//         if (year < 2017 || year == 2020) {
+//            System.out.printf("%d %s\n", year, leapYear);
+//        } else if (year <=2017 || year > 2016) {
+//            System.out.printf("%d %s\n", year, notLeapYear);
+//        }
 
     }
 
